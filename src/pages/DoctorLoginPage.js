@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
 import { Redirect } from 'react-router';
@@ -38,7 +39,7 @@ export default function DoctorLoginPage() {
                 } else {
                     console.log(e)
                     localStorage.setItem('id',e.data.user?.id)
-                    localStorage.setItem('authtoken', e.data.user?.auth_token)
+                    localStorage.setItem('authtoken', e.data.auth_token)
                     loginCtx.setIsLoggedIn(true)
                     if (!e.data.doctor_details) {
                         setAuthorize(false)

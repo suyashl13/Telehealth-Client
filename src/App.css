@@ -1,0 +1,42 @@
+.center-box {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tab-container {
+    width: 100vw;
+    margin-top: 38px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.tab-button {
+    border: none;
+    background-color: #fff;
+    padding: 14px;
+    color: grey;
+    text-transform: uppercase;
+    border-bottom: 2px solid rgba(207, 207, 207, 0.541);
+}
+
+.active-btn {
+    color: #007BFF;
+    font-weight: bold;
+    border-bottom: 4px solid #007BFF;
+    animation-delay: 50ms;
+    animation: activate 700ms;
+}
+
+@keyframes activate {
+    from {border-bottom: 2px solid rgba(207, 207, 207, 0.541);}
+    to {border-bottom: 4px solid #3292f8;font-weight: bold;}
+}
+
+.fw-bold {
+    font-size: larger;
+    font-weight: bold;
+}

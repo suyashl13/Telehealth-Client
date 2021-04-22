@@ -34,10 +34,7 @@ export default function HeadBar() {
           
             <Nav className="mr-auto" navbar>
               <NavItem>
-                <NavLink href="/appointment">Appointments</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/profile">Profile</NavLink>
+                <NavLink href="/appointments">Appointments</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="/messenging">Messenging</NavLink>

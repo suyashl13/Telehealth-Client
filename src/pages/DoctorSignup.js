@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import DoctorDetailsForm from '../components/DoctorDetailsForm'
 import { baseURL } from '../env'
@@ -53,7 +54,7 @@ export default function DoctorSignup() {
       baseURL + 'users/',formData
     ).then(e=>{
       if (e.status === 200) {
-        localStorage.setItem('id',e.data.id)
+        localStorage.setItem('id',e.data.user.id)
         localStorage.setItem('authtoken', e.data.auth_token)
         console.log(`localStorage(Token) : `, localStorage.getItem('authtoken'))
         incrementStep();
@@ -90,64 +91,64 @@ export default function DoctorSignup() {
     {
       step === 0 ?
     <form onSubmit={e=>e.preventDefault()} className="login-form">
-    <div class="form-row">
-    <div class="col-md-6 mb-3">
-      <label for="validationTooltip01">First name</label>
-      <input type="text" class="form-control" onChange={e=>{setAccountInfo({...accountInfo, firstName: e.target.value})}} value={accountInfo.firstName} id="validationTooltip01"  required/>
+    <div className="form-row">
+    <div className="col-md-6 mb-3">
+      <label forHTML="validationTooltip01">First name</label>
+      <input type="text" className="form-control" onChange={e=>{setAccountInfo({...accountInfo, firstName: e.target.value})}} value={accountInfo.firstName} id="validationTooltip01"  required/>
     </div>
-    <div class="col-md-6 mb-3">
-      <label for="validationTooltip02">Last name</label>
-      <input type="text" class="form-control" onChange={e=>{setAccountInfo({...accountInfo, lastName:e.target.value})}}  value={accountInfo.lastName}id="validationTooltip02"  required/>
-      <div class="valid-tooltip">
+    <div className="col-md-6 mb-3">
+      <label forHTML="validationTooltip02">Last name</label>
+      <input type="text" className="form-control" onChange={e=>{setAccountInfo({...accountInfo, lastName:e.target.value})}}  value={accountInfo.lastName}id="validationTooltip02"  required/>
+      <div className="valid-tooltip">
         Looks good!
       </div>
     </div>
   </div>
-  <div class="form-row">
-    <div class="col-md-6 mb-3">
-      <label for="validationTooltip03">Email</label>
-      <input type="text" class="form-control" onChange={e=>{setAccountInfo({...accountInfo, email:e.target.value})}}  value={accountInfo.email}id="validationTooltip03"  required/>
+  <div className="form-row">
+    <div className="col-md-6 mb-3">
+      <label forHTML="validationTooltip03">Email</label>
+      <input type="text" className="form-control" onChange={e=>{setAccountInfo({...accountInfo, email:e.target.value})}}  value={accountInfo.email}id="validationTooltip03"  required/>
     </div>
-    <div class="col-md-6 mb-3">
-      <label for="validationTooltip04">Phone no.</label>
-      <input type="number" class="form-control" onChange={e=>{setAccountInfo({...accountInfo, phone:e.target.value})}}  value={accountInfo.phone}id="validationTooltip04"  required/>
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="col-md-6 mb-3">
-      <label for="validationTooltip03">Password</label>
-      <input type="password" class="form-control" onChange={e=>{setAccountInfo({...accountInfo, password:e.target.value})}}  value={accountInfo.password}id="validationTooltip03"  required/>
-    </div>
-    <div class="col-md-6 mb-3">
-      <label for="validationTooltip04">Confirm Password</label>
-      <input type="password" class="form-control" onChange={e=>{setAccountInfo({...accountInfo, conf_password:e.target.value})}}  value={accountInfo.conf_password}id="validationTooltip04"  required/>
+    <div className="col-md-6 mb-3">
+      <label forHTML="validationTooltip04">Phone no.</label>
+      <input type="number" className="form-control" onChange={e=>{setAccountInfo({...accountInfo, phone:e.target.value})}}  value={accountInfo.phone}id="validationTooltip04"  required/>
     </div>
   </div>
-  <div class="form-row">
-    <div class="col-md-4 mb-3">
-      <label for="validationTooltip03">DOB : </label>
-      <input type="date" class="form-control" onChange={e=>{setAccountInfo({...accountInfo, birth_year:e.target.value})}}  value={accountInfo.birth_year} id="validationTooltip03"  required/>
+  <div className="form-row">
+    <div className="col-md-6 mb-3">
+      <label forHTML="validationTooltip03">Password</label>
+      <input type="password" className="form-control" onChange={e=>{setAccountInfo({...accountInfo, password:e.target.value})}}  value={accountInfo.password}id="validationTooltip03"  required/>
     </div>
-    <div class="form-group col-md-4 mb-3">
-  <label for="validationTooltip03">Gender</label>
-    <select class="custom-select" onChange={e=>{setAccountInfo({...accountInfo, gender:e.target.value})}}  value={accountInfo.gender} required>
+    <div className="col-md-6 mb-3">
+      <label forHTML="validationTooltip04">Confirm Password</label>
+      <input type="password" className="form-control" onChange={e=>{setAccountInfo({...accountInfo, conf_password:e.target.value})}}  value={accountInfo.conf_password}id="validationTooltip04"  required/>
+    </div>
+  </div>
+  <div className="form-row">
+    <div className="col-md-4 mb-3">
+      <label forHTML="validationTooltip03">DOB : </label>
+      <input type="date" className="form-control" onChange={e=>{setAccountInfo({...accountInfo, birth_year:e.target.value})}}  value={accountInfo.birth_year} id="validationTooltip03"  required/>
+    </div>
+    <div className="form-group col-md-4 mb-3">
+  <label forHTML="validationTooltip03">Gender</label>
+    <select className="custom-select" onChange={e=>{setAccountInfo({...accountInfo, gender:e.target.value})}}  value={accountInfo.gender} required>
       <option value="1">Male</option>
       <option value="2">Female</option>
       <option value="3">Other</option>
     </select>
-    <div class="invalid-feedback">Invalid Response</div>
+    <div className="invalid-feedback">Invalid Response</div>
   </div>
-    <div class="col-md-4 mb-3">
-      <label for="validationTooltip04">Profile Photo</label>
-      <input type="file" class="form-control-file form-control-md" onChange={e=>{setAccountInfo({...accountInfo, profile_photo: e.target.files[0]})}} id="validationTooltip04" />
+    <div className="col-md-4 mb-3">
+      <label forHTML="validationTooltip04">Profile Photo</label>
+      <input type="file" className="form-control-file form-control-md" onChange={e=>{setAccountInfo({...accountInfo, profile_photo: e.target.files[0]})}} id="validationTooltip04" />
     </div>
   </div>
-  <center><button class="btn btn-outline-primary m-2" onClick={()=>{createAccountAtBackend(accountInfo)}} type="submit">Create Account</button></center>
+  <center><button className="btn btn-outline-primary m-2" onClick={()=>{createAccountAtBackend(accountInfo)}} type="submit">Create Account</button></center>
   </form> : <DoctorDetailsForm/>
     }
   </div>
   <div className="title text-light">Step {step+1} of 2</div>
-  <div></div>
+  <div>Already have account ? <Link to='/login' className='text-light'>Login</Link></div>
   </div>
     )
 }

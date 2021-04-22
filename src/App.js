@@ -6,14 +6,14 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import DoctorSignup from './pages/DoctorSignup';
 import HomePage from './pages/HomePage';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { loginContext } from './contexts/LoginContext';
 import HeadBar from './components/HeadBar';
 import Appointments from './pages/operational_pages/Appointments';
 import Consultancy from './pages/operational_pages/Consultancy';
 import History from './pages/operational_pages/History';
 import Messenging from './pages/operational_pages/Messenging';
-import Profile from './pages/operational_pages/Profile';
+import EditProfile from './pages/operational_pages/EditProfile';
 
 function App() {
 
@@ -34,7 +34,7 @@ function App() {
         <Route path='/consultancy' component={Consultancy}/>
         <Route path='/history' component={History} />
         <Route path='/messenging' component={Messenging} />
-        <Route path='/profile' component={Profile} />
+        <Route path='/edit_profile' component={EditProfile}/>
       </Switch>
     </BrowserRouter>
     </loginContext.Provider>

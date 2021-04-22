@@ -1,8 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from 'axios'
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Redirect } from 'react-router';
 import { toast } from 'react-toastify';
+import IndicateError from '../components/IndicateError';
 import { loginContext } from '../contexts/LoginContext'
 import { baseURL } from '../env';
 import Home from './operational_pages/Home';
@@ -12,6 +13,7 @@ export default function HomePage() {
     const loginCtx = useContext(loginContext);
 
     console.log(loginCtx)
+    const [isServerDown, setIsServerDown] = useState(false)
 
     const checkAuthentication = async () => {
 
@@ -42,7 +44,7 @@ export default function HomePage() {
                 }
             ).catch(
                 e => {
-                    // Todo: Redirect to serverdown page.
+                    setIsServerDown(true)
                 }
             )
         }
@@ -52,11 +54,10 @@ export default function HomePage() {
         checkAuthentication()
     }, [])
 
+    if (isServerDown){ 
+        return <IndicateError/>
+    }
     if (!loginCtx.isLoggedIn) {
         return <Redirect to='/login' />
-    } else {
-    return (
-        <Home/>
-    )
-    }
+    } else { return  <Home /> }
 }

@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+.home-container {
+    padding-top: 126px;
+    display: flex;
+    position: static;
+    justify-content: center;
+    height: 90vh;
+    width: 100vw;
+    align-items: center;
+}
+
+#strong {
+    font-family: 'Roboto', sans-serif;
+    font-size: xx-large;
+    font-weight: bolder;
+}
+
+.limiter {
+    width: 10vw;
+}
+
+.profile-tile {
+    padding: 6px;
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+}
+
+.profile-icon {
+    width: 28px;
+    display: block;
+    font-size: 26px;
+    margin: 12px;
+    margin-right: 8px;
+}
+
+.profile-col {
+    padding-left: 16px;
+    position: relative;
+    display:  flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.center-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-photo:hover {
+    background-color: rgba(14, 11, 11, 0.295);
+}
+
+.profile-tile:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    animation: 200ms drop-shadow both;
+}
+
+@keyframes drop-shadow {
+    from { 
+        box-shadow: none;
+    } 
+    to {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+}
+
+.differentiate {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
