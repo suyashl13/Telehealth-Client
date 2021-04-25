@@ -51,7 +51,7 @@ export default function DoctorDetailsForm() {
             }
         }).catch(
             e=> {
-                console.log({e})
+                console.log(e)
                 if (e.response?.data.ERR === 'UNIQUE constraint failed: users_doctordetail.doctor_id') {
                     toast('Doctor details of this user already exsist.', {position:'bottom-center', type:"error"})
                     return 1

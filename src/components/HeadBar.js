@@ -22,8 +22,6 @@ export default function HeadBar() {
       loginCtx.setIsLoggedIn(false)
     }
 
-    console.log(loginCtx.isLoggedIn)
-
     return (
       <>
         {
@@ -40,10 +38,7 @@ export default function HeadBar() {
                 <NavLink href="/messenging">Messenging</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/consultancy">Consultancy</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/histroy">History</NavLink>
+                <NavLink href="/history">History</NavLink>
               </NavItem>
             </Nav>
                 <NavLink onClick={e=>{loginCtx.setIsLoggedIn(false); localStorage.clear()}} className="btn btn-danger btn-sm text-light ml-2" href="/login">Logout</NavLink>

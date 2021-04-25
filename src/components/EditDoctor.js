@@ -86,7 +86,7 @@ export default function EditDoctor(props) {
             
             <div className="mb-2">
                     <label forHTML="">About</label>
-                    <input required type="text" placeholder="About" className="form-control mb-2" value={profile.bio} onChange={e=>{setProfile({...profile,bio:e.target.value})}} />
+                    <textarea required  placeholder="About" className="form-control mb-2" value={profile.bio} onChange={e=>{setProfile({...profile,bio:e.target.value})}} />
             </div>
             <div className="mb-2">
                     <label forHTML="">City</label>

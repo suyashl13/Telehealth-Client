@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
@@ -24,7 +25,6 @@ export default function Home() {
 
     const [isError, setIsError] = useState(false)
     const [editProfileData, setEditProfileData] = useState({})
-    let user, doctor_details = {} ;
 
     useEffect(() => {
         fetchProfileData()
@@ -35,7 +35,6 @@ export default function Home() {
             {headers:{'Uid': localStorage.getItem('id'),'Authtoken': localStorage.getItem('authtoken')}, baseURL: baseURL}
         )
         await getProfileRequest.get('users/'+localStorage.getItem('id')+'/').then(e=>{
-            console.log(e)
             setEditProfileData({user: e.data.user,
             doctor_details:e.data.doctor_details})
             setProfileData({...profileData,

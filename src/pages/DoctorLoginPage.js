@@ -37,7 +37,6 @@ export default function DoctorLoginPage() {
                     toast('Only Doctors can access this page.',{type:"error", position:'bottom-center'})
                     return 1
                 } else {
-                    console.log(e)
                     localStorage.setItem('id',e.data.user?.id)
                     localStorage.setItem('authtoken', e.data.auth_token)
                     loginCtx.setIsLoggedIn(true)
@@ -48,7 +47,7 @@ export default function DoctorLoginPage() {
             }
         ).catch(
             err => {
-                console.log({err})
+                console.log(err)
                 if (err.response.data.ERR === 'Invalid auth credentials') {
                     setCredentials({email:'', password:''})
                     toast("Incorrect login credentials.",{type:'error', position:'bottom-center'})   

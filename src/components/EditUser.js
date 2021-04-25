@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
@@ -19,8 +20,6 @@ export default function EditUser(props) {
 
   const updateProfile = async () => {
     const formData = new FormData()
-    // console.log(profile.email, user.email)
-    // console.log(profile.email != user.email)
     if (profile.email !== user.email) {
       formData.append('email', profile.email)
     }
@@ -45,7 +44,7 @@ export default function EditUser(props) {
       }
     ).catch(
       e=>{
-        console.log({e})
+        console.log(e)
         if (e.response.data.ERR.split(': ')[0] === 'UNIQUE constraint failed') {
           toast('Phone or email already used.',{type:'error', position:"bottom-center"})
         } else {

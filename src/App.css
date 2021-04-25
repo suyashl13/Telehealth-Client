@@ -40,3 +40,40 @@
     font-size: larger;
     font-weight: bold;
 }
+
+.profile {
+    text-align: center;
+}
+
+.brdr-right {
+    border-left: solid rgb(216, 216, 216) 2px;
+    padding-left: 24px;
+    height: 80vh;
+}
+
+.overflow-control {
+    overflow: scroll;
+}
+
+.above {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row;
+}
+
+.centerbox {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.center-col-box {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}

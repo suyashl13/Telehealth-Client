@@ -11,9 +11,9 @@ import { loginContext } from './contexts/LoginContext';
 import HeadBar from './components/HeadBar';
 import Appointments from './pages/operational_pages/Appointments';
 import Consultancy from './pages/operational_pages/Consultancy';
-import History from './pages/operational_pages/History';
 import Messenging from './pages/operational_pages/Messenging';
 import EditProfile from './pages/operational_pages/EditProfile';
+import HistoryPage from './pages/operational_pages/HistoryPage';
 
 function App() {
 
@@ -30,9 +30,9 @@ function App() {
         <Route path='/signup' component={DoctorSignup}/>
         <Route exact path='/' component={HomePage} />
         {/* Operational Pages */}
+        <Route exact path='/history' component={HistoryPage}/>
         <Route path='/appointments' component={Appointments}/>
-        <Route path='/consultancy' component={Consultancy}/>
-        <Route path='/history' component={History} />
+        <Route path='/consultancy/:id' component={Consultancy}/>
         <Route path='/messenging' component={Messenging} />
         <Route path='/edit_profile' component={EditProfile}/>
       </Switch>

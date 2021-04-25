@@ -1,6 +1,5 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Redirect } from 'react-router'
 import EditDoctor from '../../components/EditDoctor'
 import EditUser from '../../components/EditUser'
 import IndicateError from '../../components/IndicateError'
@@ -18,7 +17,6 @@ export default function EditProfile(props) {
             {headers:{'Uid': localStorage.getItem('id'),'Authtoken': localStorage.getItem('authtoken')}, baseURL: baseURL}
         )
         await getProfileRequest.get('users/'+localStorage.getItem('id')+'/').then(e=>{
-            console.log(e)
             set_doctor_details(e.data.doctor_details)
             setuser(e.data.user)
             setisLoading(false)

@@ -56,11 +56,9 @@ export default function DoctorSignup() {
       if (e.status === 200) {
         localStorage.setItem('id',e.data.user.id)
         localStorage.setItem('authtoken', e.data.auth_token)
-        console.log(`localStorage(Token) : `, localStorage.getItem('authtoken'))
         incrementStep();
       }
     }).catch(e=>{
-      console.log({e})
       if (e.response?.data.ERR === "UNIQUE constraint failed: users_customuser.phone") {
         toast('This Phone is already registered with another account.', {type:'error', position:'bottom-center'})
         setAccountInfo({...accountInfo, phone:""})
@@ -72,7 +70,6 @@ export default function DoctorSignup() {
         return 1
       }
     })
-    console.log(formData)
   }
 
   const incrementStep = () => {

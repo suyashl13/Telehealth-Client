@@ -11,8 +11,6 @@ import Home from './operational_pages/Home';
 export default function HomePage() {
 
     const loginCtx = useContext(loginContext);
-
-    console.log(loginCtx)
     const [isServerDown, setIsServerDown] = useState(false)
 
     const checkAuthentication = async () => {
@@ -35,7 +33,6 @@ export default function HomePage() {
             })
             await check.get('users/check_auth/').then(
                 e => {
-                    console.log(e.data)
                     if (!e.data.Auth) {
                         localStorage.clear()
                         toast('Session Expired.', {type:'error', position:'bottom-center'})
