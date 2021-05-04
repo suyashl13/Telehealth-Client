@@ -115,7 +115,7 @@ export default function Home() {
                     </div>
                     <div className="card mb-2 profile-tile">
                         <div className="profile-icon">
-                        <i class="fas fa-file"></i>
+                        <i className="fas fa-file"></i>
                         </div>
                         <span className='profile-col text-primary'><a target="_blank" rel="noopener noreferrer" href={profileData.certificate}>Certificate</a></span>
                     </div>

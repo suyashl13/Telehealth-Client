@@ -8,7 +8,7 @@ import { baseURL } from '../env'
 export default function DoctorDetailsForm() {
 
     const [regDetails, setRegDetails] = useState({
-        specializations: '',
+        specializations: 'FAMILY PHYSICIAN',
         certificate: null,
         bio: '',
         open_time_from: '',
@@ -37,8 +37,8 @@ export default function DoctorDetailsForm() {
         const custom_req = axios.create({
             baseURL: baseURL,
             headers : {
-                'uid' : localStorage.getItem('id'),
-                'authtoken': localStorage.getItem('authtoken')
+                'Uid' : localStorage.getItem('id'),
+                'Authtoken': localStorage.getItem('authtoken')
             },
         })
 
@@ -51,7 +51,6 @@ export default function DoctorDetailsForm() {
             }
         }).catch(
             e=> {
-                console.log(e)
                 if (e.response?.data.ERR === 'UNIQUE constraint failed: users_doctordetail.doctor_id') {
                     toast('Doctor details of this user already exsist.', {position:'bottom-center', type:"error"})
                     return 1

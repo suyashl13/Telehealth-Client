@@ -32,18 +32,24 @@ export default function DoctorLoginPage() {
             baseURL + 'users/signin/',
             formData
         ).then(
-            e => {
+           (e) => {
                 if (!e.data.user?.is_doctor) {
                     toast('Only Doctors can access this page.',{type:"error", position:'bottom-center'})
                     return 1
                 } else {
+                    console.log(e.data)
                     localStorage.setItem('id',e.data.user?.id)
                     localStorage.setItem('authtoken', e.data.auth_token)
-                    loginCtx.setIsLoggedIn(true)
                     // eslint-disable-next-line eqeqeq
-                    if (e.data.doctor_details == false) {
+                    if (!!!e.data?.doctor_details) {
                         setAuthorize(false)
+                        return 0;
                     }
+                    if (!e.data.doctor_details.is_authorized) {
+                        toast("Waiting for admin authorization.", {type:'warning', position:'bottom-center'})
+                        return 0;               
+                    }
+                    loginCtx.setIsLoggedIn(true)
                 }
             }
         ).catch(
@@ -74,7 +80,7 @@ export default function DoctorLoginPage() {
     }
 
     if (!authorize) {
-        return <Redirect to='/authorize_doctor'/>
+        return <DoctorDetailsForm/>
     }
 
     if(loginCtx.isLoggedIn) {
@@ -89,8 +95,8 @@ export default function DoctorLoginPage() {
                 authorize ? <div className="card login-card mb-5">
                 <span className="login-typo">Login to Doctor Dashboard</span>
                 <form onSubmit={e=>e.preventDefault()} className="login-form">
-                    <input required value={credentials.email} onChange={(e)=>{setCredentials({...credentials,email: e.target.value})}} type="email" placeholder='Email' className="form-control"/>
-                    <input required value={credentials.password} onChange={(e)=>{setCredentials({...credentials,password: e.target.value})}} type="password" placeholder='Password' className="form-control mt-2"/>
+                    <input required value={credentials.email} onChange={(e)=>{setCredentials({...credentials, email: e.target.value})}} type="email" placeholder='Email' className="form-control"/>
+                    <input required value={credentials.password} onChange={(e)=>{setCredentials({...credentials, password: e.target.value})}} type="password" placeholder='Password' className="form-control mt-2"/>
                     <center><button id="login" onClick={e=>performLogin(credentials)} className="btn btn-outline-primary mt-3">Login</button></center>
                 </form>
             </div> : <div className="card"><DoctorDetailsForm/></div>
