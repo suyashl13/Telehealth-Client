@@ -68,7 +68,26 @@ export default function DoctorDetailsForm() {
             <div className="form-row">
             <div className="col-md-6 mb-2">
                 <label for="validationTooltip01">Specialization</label>
-                <input required onChange={e=>{setRegDetails({...regDetails, specializations:e.target.value})}} type="text" name="" id="" placeholder="Specializations" value={regDetails.specializations} className="form-control"/>
+                <select required onChange={e=>{setRegDetails({...regDetails, specializations:e.target.value})}} type="text" name="" id="" placeholder="Specializations" value={regDetails.specializations} className="form-control">
+                    <option>FAMILY PHYSICIAN</option>
+                    <option>PODIATRIST</option>
+                    <option>SPORTS MEDICINE PHYSICIAN</option>
+                    <option>RADIOLOGIST</option>
+                    <option>PREVENTIVE MEDICINE PHYSICIAN</option>
+                    <option>PHYSICAL MEDICINE AND REHABILITATION PHYSICIAN</option>
+                    <option>DERMATOLOGIST</option>
+                    <option>NUCLEAR MEDICINE PHYSICIAN</option>
+                    <option>OPHTHALMOLOGIST</option>
+                    <option>HOSPITALIST</option>
+                    <option>ALLERGISTS AND IMMUNOLOGIST</option>
+                    <option>NEUROLOGIST</option>
+                    <option>PATHOLOGIST</option>
+                    <option>ANESTHESIOLOGIST</option>
+                    <option>SURGEON</option>
+                    <option>OBSTETRICIANS AND GYNECOLOGIST</option>
+                    <option>PSYCHIATRIST</option>
+                    <option>PEDIATRICIA</option>
+                </select>
             </div>
             <div className="col-md-6 mb-2">
                 <label for="validationTooltip01">Certificate</label>

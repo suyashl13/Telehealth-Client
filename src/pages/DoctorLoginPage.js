@@ -22,7 +22,7 @@ export default function DoctorLoginPage() {
     const performLogin = async ({email, password}) => {
         if (password.length < 6) {
             setCredentials({...credentials, password:''})
-            toast('Password cannot be smaller than 6 chars.',{position:"bottom-center", type:'info'});
+            toast('Password cannot be smaller than 6 chars.', {position:"bottom-center", type:'info'});
             return 0;
         }
         const formData = new FormData()
@@ -40,7 +40,8 @@ export default function DoctorLoginPage() {
                     localStorage.setItem('id',e.data.user?.id)
                     localStorage.setItem('authtoken', e.data.auth_token)
                     loginCtx.setIsLoggedIn(true)
-                    if (!e.data.doctor_details) {
+                    // eslint-disable-next-line eqeqeq
+                    if (e.data.doctor_details == false) {
                         setAuthorize(false)
                     }
                 }
@@ -72,6 +73,10 @@ export default function DoctorLoginPage() {
         }
     }
 
+    if (!authorize) {
+        return <Redirect to='/authorize_doctor'/>
+    }
+
     if(loginCtx.isLoggedIn) {
         return <Redirect to='/' />
     }
@@ -86,7 +91,7 @@ export default function DoctorLoginPage() {
                 <form onSubmit={e=>e.preventDefault()} className="login-form">
                     <input required value={credentials.email} onChange={(e)=>{setCredentials({...credentials,email: e.target.value})}} type="email" placeholder='Email' className="form-control"/>
                     <input required value={credentials.password} onChange={(e)=>{setCredentials({...credentials,password: e.target.value})}} type="password" placeholder='Password' className="form-control mt-2"/>
-                    <center><button id="login" onClick={e=>performLogin(credentials)}  className="btn btn-outline-primary mt-3">Login</button></center>
+                    <center><button id="login" onClick={e=>performLogin(credentials)} className="btn btn-outline-primary mt-3">Login</button></center>
                 </form>
             </div> : <div className="card"><DoctorDetailsForm/></div>
             }

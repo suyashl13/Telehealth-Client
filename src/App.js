@@ -14,6 +14,7 @@ import Consultancy from './pages/operational_pages/Consultancy';
 import Messenging from './pages/operational_pages/Messenging';
 import EditProfile from './pages/operational_pages/EditProfile';
 import HistoryPage from './pages/operational_pages/HistoryPage';
+import DoctorDetailsForm from './components/DoctorDetailsForm';
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
         <Route path='/consultancy/:id' component={Consultancy}/>
         <Route path='/messenging' component={Messenging} />
         <Route path='/edit_profile' component={EditProfile}/>
+        <Route path='/authorize_doctor' component={DoctorDetailsForm}/>
       </Switch>
     </BrowserRouter>
     </loginContext.Provider>

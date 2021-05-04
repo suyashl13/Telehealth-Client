@@ -7,7 +7,7 @@ export default function TreatmentHistory(props) {
     console.log(treatment)
 
     return (
-        <div className='brdr-right'>
+        <div className='brdr-right overflow-control'>
             <span style={{fontWeight:"bold", fontSize:"34px"}}>Treatment Details</span>
             <br/><br/>
             <table className="table table-sm">
@@ -33,7 +33,7 @@ export default function TreatmentHistory(props) {
             <hr className='mt-4'/>
             <span style={{fontWeight:"bold", fontSize:"34px"}}>Medicines</span>
             <br/><br/>
-            <table className="table overflow-control">
+            <table className="table">
             <thead>
                 <tr>
                   <th className='bg-primary text-light' scope="col">Medicine Name</th>
