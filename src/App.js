@@ -11,7 +11,6 @@ import { loginContext } from './contexts/LoginContext';
 import HeadBar from './components/HeadBar';
 import Appointments from './pages/operational_pages/Appointments';
 import Consultancy from './pages/operational_pages/Consultancy';
-import Messenging from './pages/operational_pages/Messenging';
 import EditProfile from './pages/operational_pages/EditProfile';
 import HistoryPage from './pages/operational_pages/HistoryPage';
 
@@ -33,7 +32,6 @@ function App() {
         <Route exact path='/history' component={HistoryPage}/>
         <Route path='/appointments' component={Appointments}/>
         <Route path='/consultancy/:id' component={Consultancy}/>
-        <Route path='/messenging' component={Messenging} />
         <Route path='/edit_profile' component={EditProfile}/>
       </Switch>
     </BrowserRouter>

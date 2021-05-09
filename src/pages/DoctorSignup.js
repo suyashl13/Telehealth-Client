@@ -129,9 +129,9 @@ export default function DoctorSignup() {
     <div className="form-group col-md-4 mb-3">
   <label forHTML="validationTooltip03">Gender</label>
     <select className="custom-select" onChange={e=>{setAccountInfo({...accountInfo, gender:e.target.value})}}  value={accountInfo.gender} required>
-      <option value="1">Male</option>
-      <option value="2">Female</option>
-      <option value="3">Other</option>
+      <option>Male</option>
+      <option>Female</option>
+      <option>Other</option>
     </select>
     <div className="invalid-feedback">Invalid Response</div>
   </div>

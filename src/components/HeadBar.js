@@ -35,9 +35,6 @@ export default function HeadBar() {
                 <NavLink href="/appointments">Appointments</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/messenging">Messenging</NavLink>
-              </NavItem>
-              <NavItem>
                 <NavLink href="/history">History</NavLink>
               </NavItem>
             </Nav>

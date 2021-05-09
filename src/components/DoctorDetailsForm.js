@@ -85,7 +85,7 @@ export default function DoctorDetailsForm() {
                     <option>SURGEON</option>
                     <option>OBSTETRICIANS AND GYNECOLOGIST</option>
                     <option>PSYCHIATRIST</option>
-                    <option>PEDIATRICIA</option>
+                    <option>PEDIATRICIAN</option>
                 </select>
             </div>
             <div className="col-md-6 mb-2">

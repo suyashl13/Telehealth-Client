@@ -41,10 +41,11 @@ export default function DoctorLoginPage() {
                     localStorage.setItem('id',e.data.user?.id)
                     localStorage.setItem('authtoken', e.data.auth_token)
                     // eslint-disable-next-line eqeqeq
-                    if (!!!e.data?.doctor_details) {
+                    if (e.data?.doctor_details === false) {
                         setAuthorize(false)
                         return 0;
                     }
+                    console.log(!e.data.doctor_details.is_authorized)
                     if (!e.data.doctor_details.is_authorized) {
                         toast("Waiting for admin authorization.", {type:'warning', position:'bottom-center'})
                         return 0;               
