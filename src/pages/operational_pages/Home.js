@@ -80,7 +80,7 @@ export default function Home() {
                         <div className="profile-icon">
                         <i className="fas fa-user-nurse"></i>
                         </div>
-                        <span className='profile-col'>{profileData.name}</span>
+                        <span className='profile-col'>Dr. {profileData.name}</span>
 
                     </div>
                     <div className="card mb-2 profile-tile">
