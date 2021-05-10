@@ -39,11 +39,11 @@ export default function DoctorSignup() {
 
     const formData = new FormData()
     formData.append('name', firstName + ' ' + lastName)
-    formData.append('email', email)
+    formData.append('email', email.toString().trim())
     formData.append('phone', phone)
     formData.append('birth_year', birth_year)
     formData.append('gender', gender)
-    formData.append('password',password)
+    formData.append('password',password.toString().trim())
     formData.append('is_doctor', true)
 
     if(profile_photo){

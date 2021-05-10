@@ -21,7 +21,7 @@ export default function EditUser(props) {
   const updateProfile = async () => {
     const formData = new FormData()
     if (profile.email !== user.email) {
-      formData.append('email', profile.email)
+      formData.append('email', profile.email.toString().trim())
     }
     if (profile.phone !== user.phone) {
       formData.append('phone', profile.phone)

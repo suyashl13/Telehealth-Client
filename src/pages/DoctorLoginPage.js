@@ -26,8 +26,8 @@ export default function DoctorLoginPage() {
             return 0;
         }
         const formData = new FormData()
-        formData.append('email', email)
-        formData.append('password', password)
+        formData.append('email', email.toString().trim())
+        formData.append('password', password.toString().trim())
         await axios.post(
             baseURL + 'users/signin/',
             formData
