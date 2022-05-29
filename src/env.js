@@ -1,4 +1,4 @@
-export const baseURL = 'http://127.0.0.1:8000/';
+export const baseURL = 'https://api.hiresuyash.com/';
 
 export const tConvert  = (time) => {
     // Check correct time format and split into components
